@@ -136,6 +136,13 @@
 #define TEST_RUN_AMDGPU_ROCRAND_SELECT(q, func, ...)
 #endif
 
+#ifdef ONEMATH_ENABLE_OPENRNG_BACKEND
+#define TEST_RUN_CPU_OPENRNG_SELECT(q, func, ...) \
+    func(oneapi::math::backend_selector<oneapi::math::backend::openrng>{ q }, __VA_ARGS__)
+#else
+#define TEST_RUN_CPU_OPENRNG_SELECT(q, func, ...)
+#endif
+
 #ifdef ONEMATH_ENABLE_ROCSOLVER_BACKEND
 #define TEST_RUN_AMDGPU_ROCSOLVER_SELECT(q, func, ...) \
     func(oneapi::math::backend_selector<oneapi::math::backend::rocsolver>{ q }, __VA_ARGS__)
@@ -242,8 +249,10 @@
 
 #define TEST_RUN_RNG_CT_SELECT(q, func, ...)                               \
     do {                                                                   \
-        if (CHECK_HOST_OR_CPU(q))                                          \
+        if (CHECK_HOST_OR_CPU(q)) {                                        \
             TEST_RUN_INTELCPU_SELECT(q, func, __VA_ARGS__);                \
+            TEST_RUN_CPU_OPENRNG_SELECT(q, func, __VA_ARGS__);             \
+        }                                                                  \
         else if (q.get_device().is_gpu()) {                                \
             unsigned int vendor_id = static_cast<unsigned int>(            \
                 q.get_device().get_info<sycl::info::device::vendor_id>()); \

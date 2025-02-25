@@ -115,7 +115,7 @@ int main(int argc, char** argv) {
 #if !defined(ONEMATH_ENABLE_MKLCPU_BACKEND) &&                                             \
     !defined(ONEMATH_ENABLE_GENERIC_BLAS_BACKEND_INTEL_CPU) &&                             \
     !defined(ONEMATH_ENABLE_PORTFFT_BACKEND) && !defined(ONEMATH_ENABLE_NETLIB_BACKEND) && \
-    !defined(ONEMATH_ENABLE_ARMPL_BACKEND)
+    !defined(ONEMATH_ENABLE_ARMPL_BACKEND) && !defined(ONEMATH_ENABLE_OPENRNG_BACKEND)
                         if (dev.is_cpu())
                             continue;
 #endif

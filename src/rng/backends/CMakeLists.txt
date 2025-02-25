@@ -36,3 +36,7 @@ if(ENABLE_ROCRAND_BACKEND AND UNIX)
   add_subdirectory(rocrand)
 endif()
 
+if(ENABLE_OPENRNG_BACKEND)
+  add_subdirectory(openrng)
+endif()
+

@@ -47,6 +47,9 @@
 #ifdef ONEMATH_ENABLE_ROCRAND_BACKEND
 #include "oneapi/math/rng/detail/rocrand/onemath_rng_rocrand.hpp"
 #endif
+#ifdef ONEMATH_ENABLE_OPENRNG_BACKEND
+#include "oneapi/math/rng/detail/openrng/onemath_rng_openrng.hpp"
+#endif
 
 namespace oneapi {
 namespace math {
@@ -101,6 +104,14 @@ public:
     philox4x32x10(backend_selector<backend::rocrand> selector,
                   std::initializer_list<std::uint64_t> seed)
             : pimpl_(rocrand::create_philox4x32x10(selector.get_queue(), seed)) {}
+#endif
+#ifdef ONEMATH_ENABLE_OPENRNG_BACKEND
+    philox4x32x10(backend_selector<backend::openrng> selector, std::uint64_t seed = default_seed)
+            : pimpl_(openrng::create_philox4x32x10(selector.get_queue(), seed)) {}
+
+    philox4x32x10(backend_selector<backend::openrng> selector,
+                  std::initializer_list<std::uint64_t> seed)
+            : pimpl_(openrng::create_philox4x32x10(selector.get_queue(), seed)) {}
 #endif
 
     philox4x32x10(const philox4x32x10& other) {
@@ -190,6 +201,14 @@ public:
 
     mrg32k3a(backend_selector<backend::rocrand> selector, std::initializer_list<std::uint32_t> seed)
             : pimpl_(rocrand::create_mrg32k3a(selector.get_queue(), seed)) {}
+#endif
+
+#ifdef ONEMATH_ENABLE_OPENRNG_BACKEND
+    mrg32k3a(backend_selector<backend::openrng> selector, std::uint32_t seed = default_seed)
+            : pimpl_(openrng::create_mrg32k3a(selector.get_queue(), seed)) {}
+
+    mrg32k3a(backend_selector<backend::openrng> selector, std::initializer_list<std::uint32_t> seed)
+            : pimpl_(openrng::create_mrg32k3a(selector.get_queue(), seed)) {}
 #endif
 
     mrg32k3a(const mrg32k3a& other) {

@@ -55,6 +55,7 @@ option(ENABLE_GENERIC_BLAS_BACKEND "Enable the generic BLAS backend for the BLAS
 # rand
 option(ENABLE_CURAND_BACKEND "Enable the cuRAND backend for the RNG interface" OFF)
 option(ENABLE_ROCRAND_BACKEND "Enable the rocRAND backend for the RNG interface" OFF)
+option(ENABLE_OPENRNG_BACKEND "Enable the OpenRNG backend for the RNG interface" OFF)
 
 # lapack
 option(ENABLE_CUSOLVER_BACKEND "Enable the cuSOLVER backend for the LAPACK interface" OFF)
@@ -106,7 +107,8 @@ endif()
 if(ENABLE_MKLCPU_BACKEND
         OR ENABLE_MKLGPU_BACKEND
         OR ENABLE_CURAND_BACKEND
-        OR ENABLE_ROCRAND_BACKEND)
+        OR ENABLE_ROCRAND_BACKEND
+        OR ENABLE_OPENRNG_BACKEND)
   list(APPEND DOMAINS_LIST "rng")
 endif()
 if(ENABLE_MKLGPU_BACKEND
