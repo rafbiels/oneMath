@@ -275,7 +275,10 @@ Building for oneMath generic SYCL BLAS
 --------------------------------------
 
 `onemath generic SYCL BLAS <https://github.com/uxlfoundation/generic-sycl-components/tree/main/onemath/sycl/blas>`_
-is enabled by setting ``-DENABLE_GENERIC_BLAS_BACKEND=True``.
+is enabled by setting ``-DENABLE_GENERIC_BLAS_BACKEND=True``. By default, the
+source code is downloaded automatically from GitHub during CMake configuration.
+To use a local checkout of the source code instead, use the
+``-DONEMATH_SYCL_BLAS_SOURCE_DIR=<path>`` option.
 
 By default, the generic BLAS backend is not tuned for any specific device.
 This tuning is required to achieve best performance.
