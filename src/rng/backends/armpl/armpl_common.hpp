@@ -31,13 +31,21 @@
 #define __fp16        _Float16
 #define INTEGER64     1
 
+#ifdef ONEMATH_ARMPL_USE_OPENRNG
+#include "openrng.h"
+#else
 #include "armpl.h"
+#endif
 
 namespace oneapi {
 namespace math {
 namespace rng {
 namespace armpl {
 
+#ifdef ONEMATH_ARMPL_USE_OPENRNG
+// There is no version check API in OpenRNG
+inline int check_armpl_version(int,int,int,const char*) {return 0;}
+#else
 inline int check_armpl_version(armpl_int_t major_req, armpl_int_t minor_req, armpl_int_t build_req,
                                const char* message) {
     armpl_int_t major, minor, build;
@@ -54,6 +62,7 @@ inline int check_armpl_version(armpl_int_t major_req, armpl_int_t minor_req, arm
     }
     throw oneapi::math::unimplemented("rng", "version support", message);
 }
+#endif
 
 template <typename K, typename H, typename F>
 static inline auto host_task_internal(H& cgh, F f, int) -> decltype(cgh.host_task(f)) {
