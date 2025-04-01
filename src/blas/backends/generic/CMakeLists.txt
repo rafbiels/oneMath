@@ -172,8 +172,8 @@ else()
 endif()
 
 # Read cmake options exported by the onemath_sycl_blas project into oneMath variables
-set(ONEMATH_GENERIC_BLAS_ENABLE_COMPLEX ${BLAS_ENABLE_COMPLEX} CACHE INTERNAL  "Enable complex data support")
-set(ONEMATH_GENERIC_BLAS_ENABLE_USM ${BLAS_ENABLE_USM} CACHE INTERNAL  "Enable USM API support")
+set(ONEMATH_GENERIC_BLAS_ENABLE_COMPLEX ${BLAS_ENABLE_COMPLEX} CACHE INTERNAL "Enable complex data type support")
+set(ONEMATH_GENERIC_BLAS_ENABLE_USM ${BLAS_ENABLE_USM} CACHE INTERNAL "Enable USM API support")
 
 set(SOURCES
   generic_level1_double.cpp generic_level1_float.cpp
