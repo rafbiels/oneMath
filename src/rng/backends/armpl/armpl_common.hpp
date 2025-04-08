@@ -44,7 +44,9 @@ namespace armpl {
 
 #ifdef ONEMATH_ARMPL_USE_OPENRNG
 // There is no version check API in OpenRNG
-inline int check_armpl_version(int,int,int,const char*) {return 0;}
+inline int check_armpl_version(int, int, int, const char*) {
+    return 0;
+}
 #else
 inline int check_armpl_version(armpl_int_t major_req, armpl_int_t minor_req, armpl_int_t build_req,
                                const char* message) {
