@@ -37,9 +37,9 @@
 namespace oneapi::math::dft::cufft::detail {
 
 #ifdef __ADAPTIVECPP__
-constexpr auto sycl_cuda_backend{sycl::backend::cuda};
+constexpr auto sycl_cuda_backend{ sycl::backend::cuda };
 #else // DPC++
-constexpr auto sycl_cuda_backend{sycl::backend::ext_oneapi_cuda};
+constexpr auto sycl_cuda_backend{ sycl::backend::ext_oneapi_cuda };
 #endif
 
 template <dft::precision prec, dft::domain dom>

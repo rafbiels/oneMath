@@ -37,9 +37,9 @@
 namespace oneapi::math::dft::rocfft::detail {
 
 #ifdef __ADAPTIVECPP__
-constexpr auto sycl_hip_backend{sycl::backend::hip};
+constexpr auto sycl_hip_backend{ sycl::backend::hip };
 #else // DPC++
-constexpr auto sycl_hip_backend{sycl::backend::ext_oneapi_hip};
+constexpr auto sycl_hip_backend{ sycl::backend::ext_oneapi_hip };
 #endif
 
 template <dft::precision prec, dft::domain dom>
