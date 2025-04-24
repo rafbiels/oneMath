@@ -1,4 +1,4 @@
-name: "PR Tests"
+name: "PR Tests (x86_64)"
 permissions: read-all
 
 # Trigger for PR and merge to develop branch
