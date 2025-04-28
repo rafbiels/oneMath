@@ -36,7 +36,7 @@
 
 namespace oneapi::math::dft::rocfft::detail {
 
-#ifdef __ADAPTIVECPP__
+#if defined(__ADAPTIVECPP__) || defined (__HIPSYCL__)
 constexpr auto sycl_hip_backend{ sycl::backend::hip };
 #else // DPC++
 constexpr auto sycl_hip_backend{ sycl::backend::ext_oneapi_hip };
