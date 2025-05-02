@@ -31,7 +31,7 @@
 #define __fp16        _Float16
 #define INTEGER64     1
 
-#ifdef ONEMATH_ARMPL_USE_OPENRNG
+#ifdef ONEMATH_ENABLE_ARMPL_OPENRNG
 #include "openrng.h"
 #else
 #include "armpl.h"
@@ -42,7 +42,7 @@ namespace math {
 namespace rng {
 namespace armpl {
 
-#ifdef ONEMATH_ARMPL_USE_OPENRNG
+#ifdef ONEMATH_ENABLE_ARMPL_OPENRNG
 // There is no version check API in OpenRNG
 inline int check_armpl_version(int, int, int, const char*) {
     return 0;
