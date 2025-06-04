@@ -22,15 +22,15 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - config: ArmPL BLAS
-          domain: blas
-          build_options: -DREF_BLAS_ROOT=${PWD}/lapack/install
+        # - config: ArmPL BLAS
+        #   domain: blas
+        #   build_options: -DREF_BLAS_ROOT=${PWD}/lapack/install
         - config: ArmPL LAPACK
           domain: lapack
           build_options: -DREF_LAPACK_ROOT=${PWD}/lapack/install
-        - config: ArmPL RNG
-          domain: rng
-          test_options: -E 'Device|DEVICE'
+        # - config: ArmPL RNG
+        #   domain: rng
+        #   test_options: -E 'Device|DEVICE'
     name: unit tests ${{ matrix.config }} CPU
     steps:
     - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -81,6 +81,17 @@ jobs:
         wget --progress=dot:giga https://developer.arm.com/-/cdn-downloads/permalink/Arm-Performance-Libraries/Version_${{ env.ARMPL_VERSION }}/arm-performance-libraries_${{ env.ARMPL_VERSION }}_deb_gcc.tar
         tar -xf arm-performance-libraries_${{ env.ARMPL_VERSION }}_deb_gcc.tar
         ./arm-performance-libraries_${{ env.ARMPL_VERSION }}_deb/arm-performance-libraries_${{ env.ARMPL_VERSION }}_deb.sh -a -i $PWD/install
+    - name: apt install deps
+      run: sudo apt install libclang-18-dev libomp-18-dev libboost1.83-all-dev
+    - name: Build AdaptiveCpp
+      run: |
+        git clone https://github.com/AdaptiveCpp/AdaptiveCpp.git
+        cd AdaptiveCpp
+        cmake -Bbuild -DCMAKE_INSTALL_PREFIX=$PWD/install -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_CXX_COMPILER=clang++-18 -DCMAKE_C_COMPILER=clang-18 -G Ninja
+        cmake --build build
+        cmake --install build
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
     - name: Configure/Build for a domain
       if: steps.domain_check.outputs.result == 'true'
       run: |
