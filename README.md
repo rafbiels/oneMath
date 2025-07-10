@@ -175,7 +175,7 @@ Supported domains include: BLAS, LAPACK, RNG, DFT, SPARSE_BLAS
 Supported compilers include:
 - [Intel(R) oneAPI DPC++ Compiler](https://software.intel.com/en-us/oneapi/dpc-compiler): Intel proprietary compiler that supports CPUs and Intel GPUs. Intel(R) oneAPI DPC++ Compiler will be referred to as "Intel DPC++" in the "Supported Compiler" column of the tables below.
 - [oneAPI DPC++ Compiler](https://github.com/intel/llvm): Open source compiler that supports CPUs and Intel, NVIDIA, and AMD GPUs. oneAPI DPC++ Compiler will be referred to as "Open DPC++" in the "Supported Compiler" column of the tables below.
-- [AdaptiveCpp Compiler](https://github.com/AdaptiveCpp/AdaptiveCpp) (formerly known as hipSYCL): Open source compiler that supports CPUs and Intel, NVIDIA, and AMD GPUs.</br>**Note**: The source code and some documents in this project still use the previous name hipSYCL during this transition period.
+- [AdaptiveCpp Compiler](https://github.com/AdaptiveCpp/AdaptiveCpp): Open source compiler that supports CPUs and Intel, NVIDIA, and AMD GPUs.
 
 #### Linux*
 

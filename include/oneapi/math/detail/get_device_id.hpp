@@ -52,7 +52,7 @@ inline oneapi::math::device get_device_id(sycl::queue& queue) {
 #elif __aarch64__
     if (queue.get_device().is_cpu())
         device_id = device::aarch64cpu;
-#ifdef __HIPSYCL__
+#ifdef __ADAPTIVECPP__
     else if (queue.is_host())
         device_id = device::aarch64cpu;
 #endif

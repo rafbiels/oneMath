@@ -54,8 +54,11 @@ set(blas_TEST_LIST
         blas_level2
         blas_level3
         blas_batch
-        blas_extensions
-        blas_sycl_graph)
+        blas_extensions)
+
+if(${ONEMATH_SYCL_IMPLEMENTATION} STREQUAL "dpc++")
+  list(APPEND blas_TEST_LIST blas_sycl_graph)
+endif()
 
 set(blas_TEST_LINK "")
 
