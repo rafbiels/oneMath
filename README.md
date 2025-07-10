@@ -584,7 +584,7 @@ Product | Supported Version | License
 [Ninja](https://ninja-build.org/) | 1.10.0 | [Apache License v2.0](https://github.com/ninja-build/ninja/blob/master/COPYING)
 [GNU* FORTRAN Compiler](https://gcc.gnu.org/wiki/GFortran) | 7.4.0 or higher | [GNU General Public License, version 3](https://gcc.gnu.org/onlinedocs/gcc-7.5.0/gfortran/Copying.html)
 [Intel(R) oneAPI DPC++ Compiler](https://software.intel.com/en-us/oneapi/dpc-compiler) | Latest | [End User License Agreement for the Intel(R) Software Development Products](https://software.intel.com/en-us/license/eula-for-intel-software-development-products)
-[AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp) | Later than [2cfa530](https://github.com/AdaptiveCpp/AdaptiveCpp/commit/2cfa5303fd88b8f84e539b5bb6ed41e49c6d6118) | [BSD-2-Clause License ](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/develop/LICENSE)
+[AdaptiveCpp](https://github.com/AdaptiveCpp/AdaptiveCpp) | 24.06 or higher | [BSD-2-Clause License ](https://github.com/AdaptiveCpp/AdaptiveCpp/blob/develop/LICENSE)
 [oneAPI DPC++ Compiler binary for x86 CPU](https://github.com/intel/llvm/releases) | Daily builds | [Apache License v2](https://github.com/intel/llvm/blob/sycl/sycl/LICENSE.TXT)
 [oneAPI DPC++ Compiler source for NVIDIA and AMD GPUs](https://github.com/intel/llvm) | Daily source releases | [Apache License v2](https://github.com/intel/llvm/blob/sycl/sycl/LICENSE.TXT)
 [Intel(R) oneAPI Math Kernel Library](https://software.intel.com/en-us/oneapi/onemkl) | Latest | [Intel Simplified Software License](https://software.intel.com/en-us/license/intel-simplified-software-license)
